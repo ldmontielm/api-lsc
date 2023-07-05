@@ -1,5 +1,4 @@
 from fastapi import FastAPI
-from fastapi.responses import HTMLResponse
 from app.routes.words import words
 from app.routes.auth import auth
 from fastapi.middleware.cors import CORSMiddleware
