@@ -1,9 +1,9 @@
 from fastapi import APIRouter, HTTPException, status, Response
-from config.db import db, conn
-from schema.word import wordSchema, wordsSchema
+from app.config.db import db
+from app.schema.word import wordSchema, wordsSchema
 from bson.objectid import ObjectId
-from utils.filters import create_filters
-from models.word import Word
+from app.utils.filters import create_filters
+from app.models.word import Word
 
 words = APIRouter(
   prefix='/api/words',

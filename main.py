@@ -1,8 +1,10 @@
 from fastapi import FastAPI
 from fastapi.responses import HTMLResponse
-from routes.words import words
-from routes.auth import auth
+from app.routes.words import words
+from app.routes.auth import auth
 from fastapi.middleware.cors import CORSMiddleware
+from app.config.db import db
+
 
 app = FastAPI()
 
@@ -20,6 +22,12 @@ app.add_middleware(
 
 app.include_router(words)
 app.include_router(auth)
-@app.get('/', )
+
+@app.get('/')
 async def root():
-  return {"Word":"Hola mundo"}
+  count = db.words.count_documents({})
+  return {
+    "count": count,
+    "url": "http://localhost:8000/api/words",
+    "methods": ["GET", "POST", "PUT", "DELETE"],
+  }

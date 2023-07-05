@@ -1,10 +1,10 @@
 from pathlib import Path
 
-from config.db import dbUsers
+from app.config.db import dbUsers
 from dotenv import load_dotenv
 from fastapi import APIRouter, Depends, HTTPException, status
 from passlib.context import CryptContext
-from models.user import Login
+from app.models.user import Login
 
 env_path = Path('.') / '.env'
 load_dotenv(dotenv_path=env_path)
