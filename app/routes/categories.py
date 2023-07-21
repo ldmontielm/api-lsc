@@ -12,7 +12,7 @@ categories = APIRouter(
 
 @categories.get('/')
 async def get_all_categories():
-  categories = dbCategories.find({})
+  categories = dbCategories.find({{"status": True}})
   if not categories:
     raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="categories not found")
   return categories_schema(categories)
