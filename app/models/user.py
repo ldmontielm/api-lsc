@@ -5,14 +5,14 @@ class User(BaseModel):
   _id: Optional[str]
   name: str
   lastname:  str
-  full_name: str | None = None
+  full_name: Optional[str]
   email: str
   identification: str
-  profession: str | None = None
-  position: str | None = None
+  profession: str
+  position: str 
   occupation: str
   role: list = []
-  status: bool | None = True
+  status: Optional[bool] = True
   
 class UserRegister(User):
   hashed_password: str = None
