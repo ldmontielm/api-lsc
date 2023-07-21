@@ -1,14 +1,7 @@
-from pathlib import Path
-
 from app.config.db import dbUsers
-from dotenv import load_dotenv
 from fastapi import APIRouter, Depends, HTTPException, status
 from passlib.context import CryptContext
 from app.models.user import Login
-
-env_path = Path('.') / '.env'
-load_dotenv(dotenv_path=env_path)
-
 
 auth = APIRouter(
   prefix="/auth",
